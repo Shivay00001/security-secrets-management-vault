@@ -1,8 +1,13 @@
 # Security Secrets Management Vault
 
-This repository contains the source code and configuration for **security-secrets-management-vault**, a part of the advanced engineering showcase.
+A high-performance, secure vault for managing secrets, built with Go.
 
 ## Features
-- Professional-grade architecture
-- Clean code principles
-- Ready for production deployment
+- In-memory encrypted storage (simulated)
+- REST API for secret retrieval
+- Concurrency safe
+- Dockerized
+
+## Usage
+`docker build -t vault .`
+`docker run -p 8080:8080 vault`
