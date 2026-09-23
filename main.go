@@ -5,6 +5,7 @@ import (
     "fmt"
     "log"
     "net/http"
+    "os"
     "sync"
     "github.com/gorilla/mux"
 )
@@ -49,6 +50,11 @@ func main() {
     r := mux.NewRouter()
     r.HandleFunc("/secrets", CreateSecret).Methods("POST")
     r.HandleFunc("/secrets/{id}", GetSecret).Methods("GET")
-    fmt.Println("Vault listening on :8080")
-    log.Fatal(http.ListenAndServe(":8080", r))
+    port := os.Getenv("PORT")
+    if port == "" {
+        port = "8080"
+    }
+    addr := ":" + port
+    fmt.Printf("Vault listening on %s\n", addr)
+    log.Fatal(http.ListenAndServe(addr, r))
 }

@@ -48,3 +48,12 @@ Contributions, issues, and feature requests are welcome! Feel free to check the 
 ## 📝 License
 
 This project is licensed under standard terms.
+
+## ▶️ Run
+
+```bash
+go build -o vault .
+PORT=8080 ./vault        # POST /secrets  {"id","value"} | GET /secrets/{id}
+```
+
+Docker: `docker build -t secrets-vault . && docker run -p 8080:8080 secrets-vault`
